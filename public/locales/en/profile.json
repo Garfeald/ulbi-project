@@ -5,5 +5,7 @@
   "Ваше имя": "Ваше имя",
   "Попробуйте обновить страницу": "Try refreshing the page",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
-  "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile"
+  "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
+  "Сохранить": "Save",
+  "Отменить": "Cancel"
 }

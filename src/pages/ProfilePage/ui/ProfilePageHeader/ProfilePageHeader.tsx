@@ -21,7 +21,11 @@ const ProfilePageHeader = () => {
     },[dispatch])
 
     const onCanselEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true))
+        dispatch(profileActions.cancelEdit())
+    },[dispatch])
+
+    const onSave = useCallback(() => {
+        dispatch(profileActions.cancelEdit())
     },[dispatch])
 
     const drawButton = () => {
@@ -36,13 +40,22 @@ const ProfilePageHeader = () => {
                 </Button>
             )
         } else return (
-            <Button
-                className={cls.editBtn}
-                theme={ButtonTheme.OUTLINE}
-                onClick={onCanselEdit}
-            >
-                {t('Отменить')}
-            </Button>
+            <>
+                <Button
+                    className={cls.editBtn}
+                    theme={ButtonTheme.OUTLINE_RED}
+                    onClick={onCanselEdit}
+                >
+                    {t('Отменить')}
+                </Button>
+                <Button
+                    className={cls.saveBtn}
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onSave}
+                >
+                    {t('Сохранить')}
+                </Button>
+            </>
         )
     }
 

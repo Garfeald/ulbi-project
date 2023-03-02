@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import cls from './ProfilePageHeader.module.scss'
 import { classNames } from "shared/lib/classNames/classNames";
 import { useSelector } from "react-redux";
-import { getProfileReadonly, profileActions } from "entities/Profile";
+import { getProfileReadonly, profileActions, updateProfileData } from "entities/Profile";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 const ProfilePageHeader = () => {
@@ -25,7 +25,7 @@ const ProfilePageHeader = () => {
     },[dispatch])
 
     const onSave = useCallback(() => {
-        dispatch(profileActions.cancelEdit())
+        dispatch(updateProfileData())
     },[dispatch])
 
     const drawButton = () => {

@@ -16,6 +16,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from "react-redux";
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader";
+import { onlyNumbersRegexp } from "shared/const/regexp";
 
 const reducers: ReducersList = { profile: profileReducer };
 
@@ -45,11 +46,21 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     },[dispatch])
 
     const onChangeAge = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({age: Number(value || 0)}))
+        if (value && onlyNumbersRegexp.test(value)) {
+            dispatch(profileActions.updateProfile({age: Number(value)}))
+        }
     },[dispatch])
 
     const onChangeCity = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({city: value}))
+    },[dispatch])
+
+    const onChangeUsername = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({username: value}))
+    },[dispatch])
+
+    const onChangeAvatar = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({avatar: value}))
     },[dispatch])
 
     return (
@@ -64,6 +75,8 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
                     onChangeLastName={onChangeLastName}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
                     readonly={readonly}
                 />
             </div>

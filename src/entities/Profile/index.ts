@@ -8,9 +8,17 @@ export {
     profileReducer,
 } from './model/slice/profileSlice';
 
+// AsyncThunk
+
 export {
     fetchProfileData,
-} from './model/services/FetchProfileData/FetchProfileData';
+} from './model/services/fetchProfileData/fetchProfileData';
+
+export {
+    updateProfileData,
+} from './model/services/updateProfileData/updateProfileData';
+
+//
 
 export {
     ProfileCard,
